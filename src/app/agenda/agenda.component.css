@@ -1,0 +1,29 @@
+thead td, th{
+  text-align: center;
+  padding-bottom: 0px !important;
+}
+
+thead td{
+  padding-bottom: 10px !important;
+}
+
+tbody {
+  border-top: 1px solid grey;
+}
+
+tbody td, th {
+  padding: 15px 15px;
+}
+
+thead a {
+  text-decoration: none;
+}
+
+tbody a {
+  text-decoration: none;
+  color: #3d3d3a;
+  font-weight: bold;
+  background-color: lightblue;
+  padding: 10px 30px;
+  border-radius: 10px;
+}
