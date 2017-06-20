@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CollapseModule } from 'ngx-bootstrap';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -16,7 +17,8 @@ import { AgendaComponent } from './agenda/agenda.component';
   ],
   imports: [
     BrowserModule,
-    CollapseModule
+    CollapseModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
