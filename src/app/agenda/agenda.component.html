@@ -6,52 +6,22 @@
   <div fxFlex="5%">
     <a class="fa fa-chevron-left"></a>
   </div>
-  <div fxFlex>
-    <b>lun.</b>
-    <p>19 juin</p>
+  <div fxFlex *ngFor="let day of week">
+    <b>{{ day.day }}</b>
+    <p>{{ day.date }}</p>
     <div fxLayout="column">
-      <div class="rdv" *ngFor="let rdv of monday">
-        <a>{{ rdv.hour }}</a>
-      </div>
-    </div>
-  </div>
-  <div fxFlex>
-    <b>mar.</b>
-    <p>20 juin</p>
-    <div fxLayout="column">
-      <div class="rdv" *ngFor="let rdv of monday">
-        <a>{{ rdv.hour }}</a>
-      </div>
-    </div>
-  </div>
-  <div fxFlex>
-    <b>mer.</b>
-    <p>21 juin</p>
-    <div fxLayout="column">
-      <div class="rdv" *ngFor="let rdv of monday">
-        <a>{{ rdv.hour }}</a>
-      </div>
-    </div>
-  </div>
-  <div fxFlex>
-    <b>jeu.</b>
-    <p>22 juin</p>
-    <div fxLayout="column">
-      <div class="rdv" *ngFor="let rdv of monday">
-        <a>{{ rdv.hour }}</a>
-      </div>
-    </div>
-  </div>
-  <div fxFlex>
-    <b>ven.</b>
-    <p>23 juin</p>
-    <div fxLayout="column">
-      <div class="rdv" *ngFor="let rdv of monday">
-        <a>{{ rdv.hour }}</a>
-      </div>
+      <ng-container *ngFor="let rdv of day.rdvs">
+        <div class="rdv" *ngIf="rdv.isFree" (click)="onSelect(rdv)">
+          <a>{{ rdv.hour }}</a>
+        </div>
+      </ng-container>
     </div>
   </div>
   <div fxFlex="5%">
     <a class="fa fa-chevron-right"></a>
   </div>
+</div>
+
+<div fxLayout *ngIf="selectedRdv">
+  {{ selectedRdv.hour }}
 </div>

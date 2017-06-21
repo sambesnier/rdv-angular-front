@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AgendaService } from './agenda.service';
-import {Rdv} from './rdv';
+import { Day } from './day';
+import { Rdv } from './rdv';
 
 @Component({
   selector: 'app-agenda',
@@ -11,12 +12,18 @@ import {Rdv} from './rdv';
 })
 export class AgendaComponent implements OnInit {
 
-  monday: Rdv[];
+  week: Day[];
+
+  selectedRdv: Rdv;
 
   constructor(private agendaService: AgendaService) { }
 
   getRdvs(): void {
-    this.agendaService.getRdvs(1).then(monday => this.monday = monday);
+    this.agendaService.getRdvs().then(week => this.week = week);
+  }
+
+  onSelect(rdv: Rdv): void {
+    this.selectedRdv = rdv;
   }
 
   ngOnInit(): void {
