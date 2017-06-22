@@ -1,27 +1,32 @@
-<div class="agenda"
-     fxLayout
-     fxLayout.xs="column"
-     fxLayoutAlign="center"
+<div fxLayout="row"
+      fxLayoutGap="20px"
 >
-  <div fxFlex="5%">
-    <a class="fa fa-chevron-left"></a>
-  </div>
-  <div fxFlex *ngFor="let day of week">
-    <b>{{ day.day }}</b>
-    <p>{{ day.date }}</p>
-    <div fxLayout="column">
-      <ng-container *ngFor="let rdv of day.rdvs">
-        <div class="rdv" *ngIf="rdv.isFree" (click)="onSelect(rdv)">
-          <a>{{ rdv.hour }}</a>
-        </div>
-      </ng-container>
+  <div class="agenda"
+       fxLayout
+       fxLayout.xs="column"
+       fxLayoutAlign="center"
+  >
+    <div fxFlex="5%">
+      <a class="fa fa-chevron-left"></a>
+    </div>
+    <div fxFlex *ngFor="let day of week">
+      <b>{{ day.day }}</b>
+      <p>{{ day.date }}</p>
+      <div fxLayout="column">
+        <ng-container *ngFor="let rdv of day.rdvs">
+          <div class="rdv" *ngIf="rdv.isFree" (click)="onSelect(rdv)">
+            <a>{{ rdv.hour }}</a>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div fxFlex="5%">
+      <a class="fa fa-chevron-right"></a>
     </div>
   </div>
-  <div fxFlex="5%">
-    <a class="fa fa-chevron-right"></a>
-  </div>
-</div>
 
-<div fxLayout *ngIf="selectedRdv">
-  {{ selectedRdv.hour }}
+  <div fxLayout
+       *ngIf="selectedRdv">
+    <app-form-rdv [rdv]="selectedRdv"></app-form-rdv>
+  </div>
 </div>
